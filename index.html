@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>Hanzalah Hisam — Computing Science student, Singapore</title>
+  <meta name="description" content="Hanzalah Hisam is a Computing Science student at the University of Glasgow × Singapore Institute of Technology, an ex-Oracle Solution Engineering intern and a BrainHack TIL-AI 2026 finalist.">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f4f1ea">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#161513">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://colossalcap.github.io/">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Hanzalah Hisam">
+  <meta property="og:description" content="Computing Science student in Singapore. Data, cloud and systems work.">
+  <meta property="og:url" content="https://colossalcap.github.io/">
+  <style>
+    /* ---------- Tokens ---------- */
+    :root {
+      color-scheme: light dark;
+
+      --paper-light: #f4f1ea;
+      --paper-dark:  #161513;
+      --ink-light:   #1b1a17;
+      --ink-dark:    #ebe7de;
+      --muted-light: #5c584f;   /* 6.3:1 on paper */
+      --muted-dark:  #a8a297;   /* 7.2:1 on paper-dark */
+      --rule-light:  #c9c3b6;
+      --rule-dark:   #3a3732;
+      --accent-light: #b3361c;  /* 5.4:1 on paper */
+      --accent-dark:  #f08a63;  /* 7.4:1 on paper-dark */
+
+      --paper:  light-dark(var(--paper-light),  var(--paper-dark));
+      --ink:    light-dark(var(--ink-light),    var(--ink-dark));
+      --muted:  light-dark(var(--muted-light),  var(--muted-dark));
+      --rule:   light-dark(var(--rule-light),   var(--rule-dark));
+      --accent: light-dark(var(--accent-light), var(--accent-dark));
+
+      --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Charter, "Bitstream Charter", Georgia, serif;
+      --sans:  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --mono:  ui-monospace, "Cascadia Mono", "SF Mono", Menlo, Consolas, monospace;
+
+      --gutter: clamp(1.25rem, 0.75rem + 2.5vw, 3rem);
+      --measure: 62ch;
+
+      accent-color: var(--accent);
+      scrollbar-color: var(--muted) var(--paper);
+    }
+
+    /* Older browsers without light-dark(): fall back to media queries. */
+    @supports not (color: light-dark(#000, #fff)) {
+      :root { --paper: var(--paper-light); --ink: var(--ink-light); --muted: var(--muted-light); --rule: var(--rule-light); --accent: var(--accent-light); }
+      @media (prefers-color-scheme: dark) {
+        :root { --paper: var(--paper-dark); --ink: var(--ink-dark); --muted: var(--muted-dark); --rule: var(--rule-dark); --accent: var(--accent-dark); }
+      }
+    }
+
+    /* ---------- Base ---------- */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+    @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 1.0625rem;
+      line-height: 1.6;
+      overflow-wrap: break-word;
+    }
+    ::selection { background: var(--accent); color: var(--paper); }
+
+    h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.15; margin: 0; text-wrap: balance; }
+    p, li, dd { text-wrap: pretty; }
+    p { margin: 0 0 1em; }
+
+    a { color: inherit; text-decoration-color: var(--accent); text-decoration-thickness: 0.08em; text-underline-offset: 0.2em; }
+    a:hover { color: var(--accent); }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+    .visually-hidden {
+      position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden;
+      clip-path: inset(50%); white-space: nowrap;
+    }
+    .skip-link {
+      position: absolute; inset-inline-start: var(--gutter); inset-block-start: -10rem;
+      background: var(--ink); color: var(--paper); padding: 0.5rem 0.9rem; z-index: 10; text-decoration: none;
+    }
+    .skip-link:focus { inset-block-start: 0.75rem; }
+
+    .wrap { max-inline-size: 72rem; margin-inline: auto; padding-inline: var(--gutter); }
+
+    .label {
+      font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.04em;
+      color: var(--muted); font-weight: 400;
+    }
+
+    /* ---------- Header ---------- */
+    .site-header {
+      display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; justify-content: space-between; align-items: baseline;
+      padding-block: 1.5rem; border-block-end: 1px solid var(--rule);
+    }
+    .site-header .mark { font-family: var(--serif); font-size: 1.15rem; text-decoration: none; }
+    .site-header nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; }
+    .site-header nav a { font-size: 0.95rem; text-decoration: none; }
+    .site-header nav a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+
+    /* ---------- Intro ---------- */
+    .intro { padding-block: clamp(3rem, 2rem + 6vw, 7rem) clamp(2.5rem, 2rem + 3vw, 4.5rem); }
+    .intro h1 {
+      font-size: clamp(2.6rem, 1.4rem + 5.2vw, 5.6rem);
+      letter-spacing: -0.015em;
+      max-inline-size: 16ch;
+    }
+    .intro h1 em { font-style: italic; color: var(--accent); }
+    .intro .lede {
+      margin-block-start: 1.75rem;
+      max-inline-size: 48ch;
+      font-size: clamp(1.1rem, 1rem + 0.45vw, 1.3rem);
+      color: var(--muted);
+    }
+    .facts {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+      gap: 1.25rem 2rem; margin: clamp(2.5rem, 2rem + 2vw, 3.5rem) 0 0; padding: 1.25rem 0 0;
+      border-block-start: 1px solid var(--rule);
+    }
+    .facts div { margin: 0; }
+    .facts dt { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); letter-spacing: 0.04em; }
+    .facts dd { margin: 0.2rem 0 0; }
+
+    /* ---------- Sections ---------- */
+    .section {
+      display: grid; grid-template-columns: 1fr; gap: 1.5rem;
+      padding-block: clamp(2.5rem, 2rem + 3vw, 4.5rem);
+      border-block-start: 1px solid var(--rule);
+    }
+    @media (min-width: 52rem) {
+      .section { grid-template-columns: 14rem 1fr; gap: 3rem; }
+      .section > header { position: sticky; inset-block-start: 1.5rem; align-self: start; }
+    }
+    .section h2 { font-size: clamp(1.6rem, 1.3rem + 1.2vw, 2.2rem); }
+    .section h2 .num { display: block; font-family: var(--mono); font-size: 0.78rem; color: var(--accent); letter-spacing: 0.04em; margin-block-end: 0.4rem; }
+
+    /* ---------- Entries (work + projects) ---------- */
+    .entries { list-style: none; margin: 0; padding: 0; }
+    .entry {
+      display: grid; gap: 0.35rem 2rem;
+      padding-block: 1.5rem; border-block-end: 1px solid var(--rule);
+    }
+    .entry:first-child { padding-block-start: 0; }
+    .entry:last-child { border-block-end: 0; }
+    @media (min-width: 40rem) {
+      .entry { grid-template-columns: 7.5rem 1fr; }
+      .entry > .when { grid-row: 1 / span 3; }
+    }
+    .entry h3 { font-size: 1.35rem; }
+    .entry h3 a { text-decoration: none; }
+    .entry h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+    .entry h3 .arrow { display: inline-block; color: var(--accent); font-family: var(--sans); font-size: 0.85em; margin-inline-start: 0.2em; }
+    .entry .where { color: var(--muted); margin: 0; }
+    .entry .body { max-inline-size: var(--measure); }
+    .entry .body p:last-child { margin-block-end: 0; }
+    .entry .body ul { margin: 0.25rem 0 0; padding-inline-start: 1.1rem; }
+    .entry .body li + li { margin-block-start: 0.35rem; }
+    .entry .body li::marker { color: var(--accent); }
+    .stack { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); margin: 0.75rem 0 0; }
+
+    /* ---------- Skills ---------- */
+    .skills { display: grid; gap: 1.25rem 2.5rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); margin: 0; }
+    .skills dt { font-family: var(--serif); font-size: 1.15rem; }
+    .skills dd { margin: 0.25rem 0 0; color: var(--muted); }
+
+    /* ---------- Contact ---------- */
+    .contact-line { font-family: var(--serif); font-size: clamp(1.5rem, 1.1rem + 2vw, 2.6rem); line-height: 1.25; margin: 0 0 1.5rem; max-inline-size: 22ch; }
+    .links { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.75rem 2rem; }
+
+    footer.site-footer { padding-block: 2rem 3rem; border-block-start: 1px solid var(--rule); color: var(--muted); font-size: 0.9rem; }
+    footer.site-footer p { margin: 0; }
+
+    /* ---------- Forced colours & print ---------- */
+    @media (forced-colors: active) {
+      .skip-link { border: 1px solid CanvasText; }
+      .entry .body li::marker { color: CanvasText; }
+    }
+    @media print {
+      .site-header nav, .skip-link { display: none; }
+      .section > header { position: static; }
+      a { text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="wrap">
+    <header class="site-header">
+      <a class="mark" href="/">Hanzalah Hisam</a>
+      <nav aria-label="Sections">
+        <ul>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main" tabindex="-1">
+      <section class="intro" aria-labelledby="intro-title">
+        <h1 id="intro-title">I build software that has to <em>work</em> on real data.</h1>
+        <p class="lede">
+          Computing Science student at the University of Glasgow × Singapore Institute of Technology,
+          with a diploma in Applied AI &amp; Analytics. Mostly databases, cloud and systems:
+          the bits underneath the interface.
+        </p>
+        <dl class="facts">
+          <div><dt>Based in</dt><dd>Singapore</dd></div>
+          <div><dt>Studying</dt><dd>BSc (Hons) Computing Science, Year 2</dd></div>
+          <div><dt>Previously</dt><dd>Solution Engineering intern, Oracle</dd></div>
+          <div><dt>Looking for</dt><dd>Part-time and internship roles</dd></div>
+        </dl>
+      </section>
+
+      <section class="section" id="work" aria-labelledby="work-title">
+        <header><h2 id="work-title"><span class="num">01</span>Work &amp; recognition</h2></header>
+        <ol class="entries" reversed>
+          <li class="entry">
+            <p class="when label">May–Jun 2026</p>
+            <h3>Finalist, BrainHack TIL-AI 2026</h3>
+            <p class="where">DSTA · Novice category · team “no-mistakes”</p>
+            <div class="body">
+              <p>National AI challenge across speech recognition, computer vision, NLP and autonomous agents. We made the finals; only the top 20 teams reached the semis.</p>
+              <ul>
+                <li>Built a genetic-algorithm pipeline that evolved neural-network policies (population of 100) for a Bomberman-style agent through a three-phase curriculum.</li>
+                <li>Added plateau detection, checkpointing and a diagnostics tool to catch agents that learned degenerate strategies.</li>
+              </ul>
+            </div>
+          </li>
+          <li class="entry">
+            <p class="when label">Aug 2023 – Aug 2025</p>
+            <h3>Assistant Field Instructor</h3>
+            <p class="where">National Service · Special Operations Command, Singapore Police Force</p>
+            <div class="body">
+              <p>Assisted in delivering TAC 2 Immediate Response Team training to newly recruited regular police officers. Trained and certified to TAC 3 by SOC.</p>
+            </div>
+          </li>
+          <li class="entry">
+            <p class="when label">Sep 2022 – Feb 2023</p>
+            <h3>Solution Engineering Intern</h3>
+            <p class="where">Oracle Singapore</p>
+            <div class="body">
+              <ul>
+                <li>Earned the Oracle Cloud Infrastructure Foundations Associate certification during foundational training.</li>
+                <li>Co-built a cloud-native demo for a real estate client in Python/Flask, wiring together Autonomous Database, Content Management APIs and an Integration Cloud image-scanning flow. It was built to be reused for other clients.</li>
+                <li>Researched and wrote a solution proposal on API management and SOA for a client in Pakistan.</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="section" id="projects" aria-labelledby="projects-title">
+        <header><h2 id="projects-title"><span class="num">02</span>Selected projects</h2></header>
+        <ul class="entries">
+          <li class="entry">
+            <p class="when label">2026</p>
+            <h3><a href="https://github.com/colossalcap/INF2003-Grp11">E-commerce analytics platform<span class="arrow" aria-hidden="true">↗</span></a></h3>
+            <p class="where">Main contributor, 40 of 47 commits</p>
+            <div class="body">
+              <p>A dual-database platform: PostgreSQL for transactions and MongoDB for clickstream, running across five Docker containers. I re-engineered the data loader to take it from about 20 minutes to 50 seconds, added password hashing plus the cart and login flows, and kept 161 automated tests green.</p>
+              <p class="stack">Python · PostgreSQL · MongoDB · React · Docker</p>
+            </div>
+          </li>
+          <li class="entry">
+            <p class="when label">2026</p>
+            <h3><a href="https://github.com/AfifLotfi/OS-Grp-10">USB file-transfer activity driver<span class="arrow" aria-hidden="true">↗</span></a></h3>
+            <p class="where">Main contributor, 20 of 26 commits</p>
+            <div class="body">
+              <p>A Linux kernel module that logs file activity on USB drives and flags suspicious mass-copying, as a small data-loss-prevention tool. I built the end-to-end test suite and fixed the kernel compile and timing bugs raised in code review.</p>
+              <p class="stack">C · Linux kernel · Raspberry Pi</p>
+            </div>
+          </li>
+          <li class="entry">
+            <p class="when label">2026</p>
+            <h3><a href="https://github.com/BlackberryDealer/Sims-CLI-game">SimCLI<span class="arrow" aria-hidden="true">↗</span></a></h3>
+            <p class="where">Top contributor, 55 commits</p>
+            <div class="body">
+              <p>A life-simulation game played in the terminal. I refactored the engine to remove a “god method” and circular dependencies using dependency injection, then added unit tests and CI.</p>
+              <p class="stack">Java 17 · Maven · GitHub Actions</p>
+            </div>
+          </li>
+          <li class="entry">
+            <p class="when label">2026</p>
+            <h3><a href="https://github.com/colossalcap/dsa-airline-project">Airline route finder<span class="arrow" aria-hidden="true">↗</span></a></h3>
+            <p class="where">Data structures &amp; algorithms coursework</p>
+            <div class="body">
+              <p>Finds flight routes between airports with Dijkstra, Yen’s K-shortest paths and BFS reachability, served as a small Flask web app.</p>
+              <p class="stack">Python · Flask</p>
+            </div>
+          </li>
+          <li class="entry">
+            <p class="when label">2025</p>
+            <h3><a href="https://github.com/colossalcap/Tic-Tac-Toe">Tic-tac-toe with alpha-beta search<span class="arrow" aria-hidden="true">↗</span></a></h3>
+            <p class="where">Started as a group project, since rewritten</p>
+            <div class="body">
+              <p>A terminal game in C with three difficulty levels. Hard mode uses minimax with alpha-beta pruning, and a built-in self-test plays out all 16,752 possible games to show it never loses.</p>
+              <p class="stack">C11 · Make</p>
+            </div>
+          </li>
+          <li class="entry">
+            <p class="when label">2022</p>
+            <h3><a href="https://github.com/colossalcap/real-estate-demo">Cloud-native real estate demo<span class="arrow" aria-hidden="true">↗</span></a></h3>
+            <p class="where">Oracle internship</p>
+            <div class="body">
+              <p>Property listings backed by Autonomous Database, images served from a headless CMS, and uploads scanned through an Integration Cloud flow.</p>
+              <p class="stack">Python · Flask · Oracle Cloud</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section" id="skills" aria-labelledby="skills-title">
+        <header><h2 id="skills-title"><span class="num">03</span>Skills</h2></header>
+        <dl class="skills">
+          <div><dt>Languages</dt><dd>Python, Java, C, Rust, JavaScript, SQL</dd></div>
+          <div><dt>Frameworks &amp; tools</dt><dd>Flask, React, Docker, Git, GitHub Actions, Linux</dd></div>
+          <div><dt>Data &amp; cloud</dt><dd>PostgreSQL, MongoDB, MySQL, Oracle Cloud Infrastructure, Google Cloud</dd></div>
+          <div><dt>Machine learning</dt><dd>TensorFlow, Keras, genetic algorithms, reinforcement learning</dd></div>
+          <div><dt>Certification</dt><dd>OCI Foundations Associate</dd></div>
+          <div><dt>Languages spoken</dt><dd>English, Malay</dd></div>
+        </dl>
+      </section>
+
+      <section class="section" id="contact" aria-labelledby="contact-title">
+        <header><h2 id="contact-title"><span class="num">04</span>Contact</h2></header>
+        <div>
+          <p class="contact-line">Hiring for a part-time role or internship? I’d like to hear about it.</p>
+          <ul class="links">
+            <li><a href="mailto:hanzalahhisam02@gmail.com">hanzalahhisam02@gmail.com</a></li>
+            <li><a href="https://www.linkedin.com/in/hanzalah-hisam">LinkedIn</a></li>
+            <li><a href="https://github.com/colossalcap">GitHub</a></li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 Hanzalah Hisam · Singapore</p>
+    </footer>
+  </div>
+</body>
+</html>
