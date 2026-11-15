@@ -5,374 +5,365 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light dark">
   <meta name="text-scale" content="scale">
-  <title>Hanzalah Hisam — Computing Science student, Singapore</title>
-  <meta name="description" content="Hanzalah Hisam is a Computing Science student at the University of Glasgow × Singapore Institute of Technology, an ex-Oracle Solution Engineering intern and a BrainHack TIL-AI 2026 finalist.">
-  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f4f1ea">
-  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#161513">
+  <title>Hanzalah Hisam</title>
+  <meta name="description" content="Hanzalah Hisam, Computing Science student at SIT × University of Glasgow in Singapore. Databases, systems and the occasional AI competition.">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f3efe6">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#171614">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="canonical" href="https://colossalcap.github.io/">
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Hanzalah Hisam">
-  <meta property="og:description" content="Computing Science student in Singapore. Data, cloud and systems work.">
+  <meta property="og:description" content="Computing Science student in Singapore. Databases, systems and the occasional AI competition.">
   <meta property="og:url" content="https://colossalcap.github.io/">
+  <meta property="og:image" content="https://colossalcap.github.io/img/me.webp">
   <style>
-    /* ---------- Tokens ---------- */
     :root {
       color-scheme: light dark;
 
-      --paper-light: #f4f1ea;
-      --paper-dark:  #161513;
-      --ink-light:   #1b1a17;
-      --ink-dark:    #ebe7de;
-      --muted-light: #5c584f;   /* 6.3:1 on paper */
-      --muted-dark:  #a8a297;   /* 7.2:1 on paper-dark */
-      --rule-light:  #c9c3b6;
-      --rule-dark:   #3a3732;
-      --accent-light: #b3361c;  /* 5.4:1 on paper */
-      --accent-dark:  #f08a63;  /* 7.4:1 on paper-dark */
+      --paper-light: #f3efe6;  --paper-dark: #171614;
+      --card-light:  #fbf9f4;  --card-dark:  #201f1c;
+      --ink-light:   #1d1b17;  --ink-dark:   #ece8df;
+      --muted-light: #5d584e;  --muted-dark: #a9a397;
+      --rule-light:  #d2cbbd;  --rule-dark:  #3a3732;
+      --accent-light: #9e3a1e; --accent-dark: #ee9068;
+      --mark-light:  #f1df9c;  --mark-dark:  #4a3f1e;
 
       --paper:  light-dark(var(--paper-light),  var(--paper-dark));
+      --card:   light-dark(var(--card-light),   var(--card-dark));
       --ink:    light-dark(var(--ink-light),    var(--ink-dark));
       --muted:  light-dark(var(--muted-light),  var(--muted-dark));
       --rule:   light-dark(var(--rule-light),   var(--rule-dark));
       --accent: light-dark(var(--accent-light), var(--accent-dark));
+      --mark:   light-dark(var(--mark-light),   var(--mark-dark));
 
-      --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Charter, "Bitstream Charter", Georgia, serif;
+      --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Charter, Georgia, serif;
       --sans:  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       --mono:  ui-monospace, "Cascadia Mono", "SF Mono", Menlo, Consolas, monospace;
 
       --gutter: clamp(1.25rem, 0.75rem + 2.5vw, 3rem);
-      --measure: 62ch;
-
       accent-color: var(--accent);
       scrollbar-color: var(--muted) var(--paper);
     }
-
-    /* Older browsers without light-dark(): fall back to media queries. */
     @supports not (color: light-dark(#000, #fff)) {
-      :root { --paper: var(--paper-light); --ink: var(--ink-light); --muted: var(--muted-light); --rule: var(--rule-light); --accent: var(--accent-light); }
+      :root { --paper: var(--paper-light); --card: var(--card-light); --ink: var(--ink-light); --muted: var(--muted-light); --rule: var(--rule-light); --accent: var(--accent-light); --mark: var(--mark-light); }
       @media (prefers-color-scheme: dark) {
-        :root { --paper: var(--paper-dark); --ink: var(--ink-dark); --muted: var(--muted-dark); --rule: var(--rule-dark); --accent: var(--accent-dark); }
+        :root { --paper: var(--paper-dark); --card: var(--card-dark); --ink: var(--ink-dark); --muted: var(--muted-dark); --rule: var(--rule-dark); --accent: var(--accent-dark); --mark: var(--mark-dark); }
       }
     }
 
-    /* ---------- Base ---------- */
     *, *::before, *::after { box-sizing: border-box; }
-    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
     @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
-
     body {
-      margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: var(--sans);
-      font-size: 1.0625rem;
-      line-height: 1.6;
-      overflow-wrap: break-word;
+      margin: 0; background: var(--paper); color: var(--ink);
+      font-family: var(--sans); font-size: 1.0625rem; line-height: 1.6; overflow-wrap: break-word;
     }
     ::selection { background: var(--accent); color: var(--paper); }
-
     h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.15; margin: 0; text-wrap: balance; }
-    p, li, dd { text-wrap: pretty; }
+    p, li, figcaption { text-wrap: pretty; }
     p { margin: 0 0 1em; }
-
+    img { display: block; max-inline-size: 100%; block-size: auto; }
     a { color: inherit; text-decoration-color: var(--accent); text-decoration-thickness: 0.08em; text-underline-offset: 0.2em; }
     a:hover { color: var(--accent); }
-    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    mark { background: var(--mark); color: inherit; padding: 0 0.15em; border-radius: 2px; }
+    code { font-family: var(--mono); font-size: 0.88em; }
 
-    .visually-hidden {
-      position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden;
-      clip-path: inset(50%); white-space: nowrap;
-    }
-    .skip-link {
-      position: absolute; inset-inline-start: var(--gutter); inset-block-start: -10rem;
-      background: var(--ink); color: var(--paper); padding: 0.5rem 0.9rem; z-index: 10; text-decoration: none;
-    }
+    .skip-link { position: absolute; inset-inline-start: var(--gutter); inset-block-start: -10rem; background: var(--ink); color: var(--paper); padding: 0.5rem 0.9rem; z-index: 10; text-decoration: none; }
     .skip-link:focus { inset-block-start: 0.75rem; }
+    .wrap { max-inline-size: 70rem; margin-inline: auto; padding-inline: var(--gutter); }
+    .visually-hidden { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+    .small { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); letter-spacing: 0.02em; }
 
-    main:focus, .section:focus { outline: none; }
-
-    .wrap { max-inline-size: 72rem; margin-inline: auto; padding-inline: var(--gutter); }
-
-    .label {
-      font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.04em;
-      color: var(--muted); font-weight: 400;
-    }
-
-    /* ---------- Header ---------- */
-    .site-header {
-      display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; justify-content: space-between; align-items: baseline;
-      padding-block: 1.5rem; border-block-end: 1px solid var(--rule);
-    }
-    .site-header .mark { font-family: var(--serif); font-size: 1.15rem; text-decoration: none; }
-    .site-header nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; }
-    .site-header nav a { font-size: 0.95rem; text-decoration: none; }
-    .site-header nav a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
-
-    /* Scrollspy: highlight the section currently in view (colour + underline, not colour alone). */
+    /* Header + scrollspy */
+    .site-header { display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; justify-content: space-between; align-items: baseline; padding-block: 1.25rem; border-block-end: 1px solid var(--rule); }
+    .site-header .mark-name { font-family: var(--serif); font-size: 1.15rem; text-decoration: none; }
     .site-header nav { scroll-target-group: auto; }
-    .site-header nav a:is(:target-current, .target-current) {
-      color: var(--accent);
-      text-decoration: underline;
-      text-decoration-color: currentColor;
-      text-decoration-thickness: 2px;
-    }
-
+    .site-header nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.25rem 1.4rem; }
+    .site-header nav a { font-size: 0.95rem; text-decoration: none; }
+    .site-header nav a:hover { text-decoration: underline; }
+    .site-header nav a:is(:target-current, .target-current) { color: var(--accent); text-decoration: underline; text-decoration-thickness: 2px; }
     @media (min-width: 52rem) {
-      .site-header {
-        position: sticky; inset-block-start: 0; z-index: 5;
-        background: var(--paper);
-      }
-      html { scroll-padding-block-start: 5.5rem; }
+      .site-header { position: sticky; inset-block-start: 0; z-index: 5; background: var(--paper); }
+      html { scroll-padding-block-start: 5rem; }
     }
+    main:focus, section:focus { outline: none; }
 
-    /* ---------- Intro ---------- */
-    .intro { padding-block: clamp(3rem, 2rem + 6vw, 7rem) clamp(2.5rem, 2rem + 3vw, 4.5rem); }
-    .intro h1 {
-      font-size: clamp(2.6rem, 1.4rem + 5.2vw, 5.6rem);
-      letter-spacing: -0.015em;
-      max-inline-size: 16ch;
-    }
-    .intro h1 em { font-style: italic; color: var(--accent); }
-    .intro .lede {
-      margin-block-start: 1.75rem;
-      max-inline-size: 48ch;
-      font-size: clamp(1.1rem, 1rem + 0.45vw, 1.3rem);
-      color: var(--muted);
-    }
-    .facts {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
-      gap: 1.25rem 2rem; margin: clamp(2.5rem, 2rem + 2vw, 3.5rem) 0 0; padding: 1.25rem 0 0;
-      border-block-start: 1px solid var(--rule);
-    }
-    .facts div { margin: 0; }
-    .facts dt { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); letter-spacing: 0.04em; }
-    .facts dd { margin: 0.2rem 0 0; }
+    /* Intro */
+    .intro { display: grid; gap: 2.5rem; padding-block: clamp(2.5rem, 2rem + 4vw, 5.5rem) clamp(2rem, 1.5rem + 3vw, 4rem); align-items: center; }
+    @media (min-width: 52rem) { .intro { grid-template-columns: 1fr 19rem; gap: 4rem; } }
+    .intro h1 { font-size: clamp(2.4rem, 1.5rem + 4vw, 4.4rem); letter-spacing: -0.01em; margin-block-end: 1.25rem; }
+    .intro p { font-size: clamp(1.08rem, 1rem + 0.35vw, 1.22rem); max-inline-size: 38rem; }
+    .polaroid { margin: 0; justify-self: center; inline-size: min(100%, 19rem); background: var(--card); padding: 0.7rem 0.7rem 0.4rem; border: 1px solid var(--rule); box-shadow: 0 1px 2px rgb(0 0 0 / 0.08), 0 8px 24px -12px rgb(0 0 0 / 0.25); rotate: 2deg; }
+    .polaroid img { aspect-ratio: 4 / 5; object-fit: cover; inline-size: 100%; }
+    .polaroid figcaption { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); padding-block: 0.55rem 0.2rem; text-align: center; }
+    @media (forced-colors: active) { .polaroid { border-color: CanvasText; } }
 
-    /* ---------- Sections ---------- */
-    .section {
-      display: grid; grid-template-columns: 1fr; gap: 1.5rem;
-      padding-block: clamp(2.5rem, 2rem + 3vw, 4.5rem);
-      border-block-start: 1px solid var(--rule);
-    }
+    .now { border: 1px dashed var(--rule); background: var(--card); padding: 1.1rem 1.25rem; max-inline-size: 38rem; margin-block-start: 1.5rem; }
+    .now h2 { font-family: var(--mono); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em; margin-block-end: 0.5rem; color: var(--accent); }
+    .now ul { margin: 0; padding-inline-start: 1.1rem; }
+    .now li + li { margin-block-start: 0.25rem; }
+
+    /* Sections */
+    section.block { padding-block: clamp(2.5rem, 2rem + 3vw, 4.5rem); border-block-start: 1px solid var(--rule); }
+    .block > h2 { font-size: clamp(1.7rem, 1.3rem + 1.4vw, 2.4rem); margin-block-end: 0.4rem; }
+    .block > .lede { color: var(--muted); max-inline-size: 40rem; margin-block-end: 2rem; }
+
+    /* Case studies */
+    .case { display: grid; gap: 1.5rem 3rem; padding-block: 2rem; border-block-start: 1px dashed var(--rule); }
+    .case:first-of-type { border-block-start: 0; padding-block-start: 0.5rem; }
     @media (min-width: 52rem) {
-      .section { grid-template-columns: 14rem 1fr; gap: 3rem; }
-      .section > header { position: sticky; inset-block-start: 6rem; align-self: start; }
+      .case { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); align-items: start; }
+      .case.flip > .media { order: -1; }
     }
-    .section h2 { font-size: clamp(1.6rem, 1.3rem + 1.2vw, 2.2rem); }
-    .section h2 .num { display: block; font-family: var(--mono); font-size: 0.78rem; color: var(--accent); letter-spacing: 0.04em; margin-block-end: 0.4rem; }
+    .case h3 { font-size: clamp(1.35rem, 1.2rem + 0.6vw, 1.7rem); margin-block: 0.35rem 0.75rem; }
+    .case h3 a { text-decoration: none; }
+    .case h3 a:hover { text-decoration: underline; }
+    .case .meta { display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; }
+    .case dl { margin: 1rem 0 0; display: grid; gap: 0.6rem; }
+    .case dt { font-family: var(--mono); font-size: 0.78rem; color: var(--accent); letter-spacing: 0.03em; }
+    .case dd { margin: 0; }
+    .stack { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); margin-block-start: 1rem; }
+    .media { display: grid; gap: 1rem; }
+    .media.two { grid-template-columns: 1.6fr 1fr; align-items: start; }
+    figure.shot { margin: 0; }
+    figure.shot img { border: 1px solid var(--rule); background: #fff; }
+    figure.shot figcaption { font-size: 0.85rem; color: var(--muted); margin-block-start: 0.45rem; }
+    @media (max-width: 30rem) { .media.two { grid-template-columns: 1fr; } }
 
-    /* ---------- Entries (work + projects) ---------- */
-    .entries { list-style: none; margin: 0; padding: 0; }
-    .entry {
-      display: grid; gap: 0.35rem 2rem;
-      padding-block: 1.5rem; border-block-end: 1px solid var(--rule);
+    /* Small projects */
+    .minor { list-style: none; margin: 2rem 0 0; padding: 0; display: grid; gap: 1rem 2rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); }
+    .minor li { border-block-start: 1px solid var(--rule); padding-block-start: 0.9rem; }
+    .minor h3 { font-size: 1.15rem; margin-block-end: 0.35rem; }
+    .minor h3 a { text-decoration: none; }
+    .minor p { margin: 0; color: var(--muted); font-size: 0.97rem; }
+
+    /* Game */
+    .game { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem; align-items: start; }
+    .game > * { min-inline-size: 0; }
+    @media (min-width: 52rem) { .game { grid-template-columns: auto minmax(0, 1fr); gap: 3.5rem; } }
+    .board { display: grid; grid-template-columns: repeat(3, minmax(4.25rem, 6rem)); gap: 0.4rem; }
+    .board button {
+      aspect-ratio: 1; font-family: var(--serif); font-size: clamp(2rem, 1.5rem + 2vw, 2.8rem); line-height: 1;
+      background: var(--card); color: var(--ink); border: 1px solid var(--rule); border-radius: 4px; cursor: pointer;
+      min-inline-size: 2.75rem; min-block-size: 2.75rem;
     }
-    .entry:first-child { padding-block-start: 0; }
-    .entry:last-child { border-block-end: 0; }
-    @media (min-width: 40rem) {
-      .entry { grid-template-columns: 7.5rem 1fr; }
-      .entry > .when { grid-row: 1 / span 3; }
-    }
-    .entry h3 { font-size: 1.35rem; }
-    .entry h3 a { text-decoration: none; }
-    .entry h3 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
-    .entry h3 .arrow { display: inline-block; color: var(--accent); font-family: var(--sans); font-size: 0.85em; margin-inline-start: 0.2em; }
-    .entry .where { color: var(--muted); margin: 0; }
-    .entry .body { max-inline-size: var(--measure); }
-    .entry .body p:last-child { margin-block-end: 0; }
-    .entry .body ul { margin: 0.25rem 0 0; padding-inline-start: 1.1rem; }
-    .entry .body li + li { margin-block-start: 0.35rem; }
-    .entry .body li::marker { color: var(--accent); }
-    .stack { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); margin: 0.75rem 0 0; }
+    .board button:hover:enabled { border-color: var(--accent); }
+    .board button[data-mark="O"] { color: var(--accent); }
+    .board button:disabled { cursor: default; }
+    .board button.win { background: var(--mark); }
+    .controls { display: flex; flex-wrap: wrap; gap: 0.75rem 1.25rem; align-items: center; margin-block: 1rem 0.5rem; }
+    .controls label { display: inline-flex; gap: 0.35rem; align-items: center; }
+    .btn { font: inherit; padding: 0.45rem 0.9rem; min-block-size: 2.5rem; border: 1px solid var(--ink); background: transparent; color: var(--ink); border-radius: 999px; cursor: pointer; }
+    .btn:hover { background: var(--ink); color: var(--paper); }
+    .status { font-family: var(--mono); font-size: 0.9rem; min-block-size: 1.6em; }
+    .score { font-family: var(--mono); font-size: 0.85rem; color: var(--muted); }
+    pre.term { background: #151412; color: #e6e1d6; padding: 1rem 1.1rem; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; margin: 1rem 0 0; }
+    pre.term .p { color: #ee9068; }
 
-    /* ---------- Skills ---------- */
-    .skills { display: grid; gap: 1.25rem 2.5rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); margin: 0; }
-    .skills dt { font-family: var(--serif); font-size: 1.15rem; }
-    .skills dd { margin: 0.25rem 0 0; color: var(--muted); }
+    /* Experience */
+    .xp { list-style: none; margin: 0; padding: 0; }
+    .xp li { display: grid; gap: 0.15rem 2rem; padding-block: 1rem; border-block-start: 1px solid var(--rule); }
+    @media (min-width: 40rem) { .xp li { grid-template-columns: 10rem 1fr; } }
+    .xp h3 { font-size: 1.15rem; }
+    .xp p { margin: 0.2rem 0 0; color: var(--muted); max-inline-size: 42rem; }
 
-    /* ---------- Contact ---------- */
-    .contact-line { font-family: var(--serif); font-size: clamp(1.5rem, 1.1rem + 2vw, 2.6rem); line-height: 1.25; margin: 0 0 1.5rem; max-inline-size: 22ch; }
+    .contact-line { font-family: var(--serif); font-size: clamp(1.5rem, 1.1rem + 2vw, 2.4rem); line-height: 1.25; max-inline-size: 24ch; margin-block-end: 1.25rem; }
     .links { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.75rem 2rem; }
+    footer { padding-block: 2rem 3rem; border-block-start: 1px solid var(--rule); color: var(--muted); font-size: 0.9rem; }
+    footer p { margin: 0 0 0.3rem; }
 
-    footer.site-footer { padding-block: 2rem 3rem; border-block-start: 1px solid var(--rule); color: var(--muted); font-size: 0.9rem; }
-    footer.site-footer p { margin: 0; }
-
-    /* ---------- Forced colours & print ---------- */
-    @media (forced-colors: active) {
-      .skip-link { border: 1px solid CanvasText; }
-      .entry .body li::marker { color: CanvasText; }
-    }
-    @media print {
-      .site-header nav, .skip-link { display: none; }
-      .section > header { position: static; }
-      a { text-decoration: none; }
-    }
+    @media print { .site-header nav, .skip-link, #play { display: none; } .polaroid { rotate: none; box-shadow: none; } }
   </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-
   <div class="wrap">
     <header class="site-header">
-      <a class="mark" href="/">Hanzalah Hisam</a>
+      <a class="mark-name" href="/">Hanzalah Hisam</a>
       <nav aria-label="Sections">
         <ul>
-          <li><a href="#work">Work</a></li>
           <li><a href="#projects">Projects</a></li>
-          <li><a href="#skills">Skills</a></li>
+          <li><a href="#play">Play</a></li>
+          <li><a href="#experience">Experience</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
     </header>
 
     <main id="main" tabindex="-1">
-      <section class="intro" aria-labelledby="intro-title">
-        <h1 id="intro-title">I build software that has to <em>work</em> on real data.</h1>
-        <p class="lede">
-          Computing Science student at the University of Glasgow × Singapore Institute of Technology,
-          with a diploma in Applied AI &amp; Analytics. Mostly databases, cloud and systems:
-          the bits underneath the interface.
-        </p>
-        <dl class="facts">
-          <div><dt>Based in</dt><dd>Singapore</dd></div>
-          <div><dt>Studying</dt><dd>BSc (Hons) Computing Science, Year 2</dd></div>
-          <div><dt>Previously</dt><dd>Solution Engineering intern, Oracle</dd></div>
-          <div><dt>Looking for</dt><dd>Part-time and internship roles</dd></div>
-        </dl>
+      <section class="intro" aria-labelledby="hi">
+        <div>
+          <h1 id="hi">Hey, I’m Hanzalah.</h1>
+          <p>I’m in my second year of Computing Science at SIT, on the joint degree with the University of Glasgow. Before this I did a diploma in Applied AI &amp; Analytics at Singapore Polytechnic, interned with Oracle’s solution engineering team, and spent two years of National Service as an assistant field instructor with the Police’s Special Operations Command.</p>
+          <p>The work I enjoy most is the stuff underneath the screen: data loaders, queues, database schemas, test suites. It’s rarely the part people screenshot, but it’s where a project gets fast or falls over.</p>
+          <aside class="now" aria-labelledby="now-title">
+            <h2 id="now-title">NOW · NOV 2026</h2>
+            <ul>
+              <li>Year 2 at SIT, juggling modules and group projects.</li>
+              <li>Looking for a part-time role or internship, up to 16 hours a week.</li>
+              <li>Just rewrote my first-year tic-tac-toe AI. <a href="#play">You can play it below.</a></li>
+            </ul>
+          </aside>
+        </div>
+        <figure class="polaroid">
+          <img src="img/me.webp" width="600" height="750" fetchpriority="high"
+               alt="Hanzalah smiling in a selfie, with red rooftops and trees in the valley behind him.">
+          <figcaption>a better view than my desk</figcaption>
+        </figure>
       </section>
 
-      <section class="section" id="work" tabindex="-1" aria-labelledby="work-title">
-        <header><h2 id="work-title"><span class="num">01</span>Work &amp; recognition</h2></header>
-        <ol class="entries" reversed>
-          <li class="entry">
-            <p class="when label">May–Jun 2026</p>
-            <h3>Finalist, BrainHack TIL-AI 2026</h3>
-            <p class="where">DSTA · Novice category · team “no-mistakes”</p>
-            <div class="body">
-              <p>National AI challenge across speech recognition, computer vision, NLP and autonomous agents. We made the finals; only the top 20 teams reached the semis.</p>
-              <ul>
-                <li>Built a genetic-algorithm pipeline that evolved neural-network policies (population of 100) for a Bomberman-style agent through a three-phase curriculum.</li>
-                <li>Added plateau detection, checkpointing and a diagnostics tool to catch agents that learned degenerate strategies.</li>
-              </ul>
-            </div>
-          </li>
-          <li class="entry">
-            <p class="when label">Aug 2023 – Aug 2025</p>
-            <h3>Assistant Field Instructor</h3>
-            <p class="where">National Service · Special Operations Command, Singapore Police Force</p>
-            <div class="body">
-              <p>Assisted in delivering TAC 2 Immediate Response Team training to newly recruited regular police officers. Trained and certified to TAC 3 by SOC.</p>
-            </div>
-          </li>
-          <li class="entry">
-            <p class="when label">Sep 2022 – Feb 2023</p>
-            <h3>Solution Engineering Intern</h3>
-            <p class="where">Oracle Singapore</p>
-            <div class="body">
-              <ul>
-                <li>Earned the Oracle Cloud Infrastructure Foundations Associate certification during foundational training.</li>
-                <li>Co-built a cloud-native demo for a real estate client in Python/Flask, wiring together Autonomous Database, Content Management APIs and an Integration Cloud image-scanning flow. It was built to be reused for other clients.</li>
-                <li>Researched and wrote a solution proposal on API management and SOA for a client in Pakistan.</li>
-              </ul>
-            </div>
-          </li>
-        </ol>
-      </section>
+      <section class="block" id="projects" tabindex="-1" aria-labelledby="projects-title">
+        <h2 id="projects-title">Things I’ve built</h2>
+        <p class="lede">Three I’m proudest of, with what went wrong and what I changed. The rest are further down.</p>
 
-      <section class="section" id="projects" tabindex="-1" aria-labelledby="projects-title">
-        <header><h2 id="projects-title"><span class="num">02</span>Selected projects</h2></header>
-        <ul class="entries">
-          <li class="entry">
-            <p class="when label">2026</p>
-            <h3><a href="https://github.com/colossalcap/INF2003-Grp11">E-commerce analytics platform<span class="arrow" aria-hidden="true">↗</span></a></h3>
-            <p class="where">Main contributor, 40 of 47 commits</p>
-            <div class="body">
-              <p>A dual-database platform: PostgreSQL for transactions and MongoDB for clickstream, running across five Docker containers. I re-engineered the data loader to take it from about 20 minutes to 50 seconds, added password hashing plus the cart and login flows, and kept 161 automated tests green.</p>
-              <p class="stack">Python · PostgreSQL · MongoDB · React · Docker</p>
-            </div>
+        <article class="case">
+          <div>
+            <p class="meta small"><span>May–Jun 2026</span><span>Team “no-mistakes” · DSTA</span></p>
+            <h3>BrainHack TIL-AI 2026: training an agent to play a Bomberman-style game</h3>
+            <p>DSTA’s national AI challenge throws speech recognition, computer vision, NLP and an autonomous agent at you in a few weeks. I took the agent. We made the finals in the Novice category; only the top 20 teams got past the semis.</p>
+            <dl>
+              <div><dt>THE APPROACH</dt><dd>Rather than hand-writing rules for the agent, I built a genetic-algorithm pipeline that evolves them: a population of 100 neural-network policies, trained through a three-phase curriculum.</dd></div>
+              <div><dt>KEEPING IT HONEST</dt><dd>Evolution finds shortcuts. I added plateau detection and checkpointing so long runs could recover, plus a diagnostics tool to catch agents that had learned degenerate strategies instead of actually playing.</dd></div>
+            </dl>
+            <p class="stack">Python · neural networks · genetic algorithms</p>
+          </div>
+          <div class="media two">
+            <figure class="shot">
+              <img src="img/brainhack-team.webp" width="960" height="540" loading="lazy"
+                   alt="Five members of team no-mistakes standing in front of the BrainHack ‘Beyond the Edge’ backdrop at the DSTA event.">
+              <figcaption>The team at the finals.</figcaption>
+            </figure>
+            <figure class="shot">
+              <img src="img/brainhack-leaderboard.webp" width="480" height="480" loading="lazy"
+                   alt="Photo of the live leaderboard screen, with no-mistakes in first place on 34.3 points, ahead of liuqi on 15.9.">
+              <figcaption>Top of the live leaderboard during the competition.</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="case flip">
+          <div>
+            <p class="meta small"><span>2026</span><span>SIT · databases module</span><span>40 of 47 commits</span></p>
+            <h3><a href="https://github.com/colossalcap/INF2003-Grp11">An e-commerce analytics platform on two databases</a></h3>
+            <p>About a million rows of orders and clickstream data: transactions in PostgreSQL, browsing events in MongoDB, a Python API and a React front end, across five Docker containers.</p>
+            <dl>
+              <div><dt>THE PROBLEM</dt><dd>Loading the full dataset was painfully slow, so every schema change took ages to test.</dd></div>
+              <div><dt>WHAT I CHANGED</dt><dd>Grouped 761,000 single <code>update_one</code> calls into one batched <code>$push</code> per session, switched session inserts to <code>insert_many</code>, and fixed the sneakiest one: the loader was bcrypt-hashing the demo password once per user. Hashing it once saved about 83 minutes on its own.</dd></div>
+              <div><dt>ALSO</dt><dd>Password hashing, the cart and login flows, and getting the suite to 161 passing tests.</dd></div>
+            </dl>
+            <p class="stack">Python · PostgreSQL · MongoDB · React · Docker</p>
+          </div>
+          <div class="media">
+            <figure class="shot">
+              <a href="img/er-diagram.webp"><img src="img/er-diagram.webp" width="1800" height="1019" loading="lazy"
+                   alt="Entity-relationship diagram: eight PostgreSQL tables on the left including users, customers, orders and order_items, and four MongoDB collections on the right, linked by a change-data-capture outbox."></a>
+              <figcaption>The schema: PostgreSQL on the left, MongoDB on the right, synced through an outbox table. Click to enlarge.</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="case">
+          <div>
+            <p class="meta small"><span>2026</span><span>SIT · data structures &amp; algorithms</span></p>
+            <h3><a href="https://github.com/colossalcap/dsa-airline-project">An airline route finder, and a queue I had to justify</a></h3>
+            <p>A Flask app over 3,425 airports that finds cheapest routes (Dijkstra), alternatives (Yen’s K-shortest paths) and everywhere you can reach in N stops (BFS). The BFS and its benchmarks were mine.</p>
+            <dl>
+              <div><dt>THE IDEA</dt><dd>Python’s list makes a slow queue, so I wrote my own: an unrolled linked list that keeps O(1) pops without allocating a node per item.</dd></div>
+              <div><dt>THE HONEST RESULT</dt><dd>On small graphs it’s actually <em>slower</em> (0.82× at 5,000 nodes). It only pulls ahead past about 20,000 nodes, reaching 1.74× at 100,000. Our real dataset is small enough that it barely matters. Worth knowing before claiming a speedup.</dd></div>
+            </dl>
+            <p class="stack">Python · Flask · graph algorithms</p>
+          </div>
+          <div class="media">
+            <figure class="shot">
+              <a href="img/bfs-scaling.webp"><img src="img/bfs-scaling.webp" width="1600" height="620" loading="lazy"
+                   alt="Two bar charts. Left: BFS execution time for an array queue versus BlockQueue from 5,000 to 100,000 nodes; at 100,000 nodes the array queue takes about 2,050 ms and BlockQueue about 1,180 ms. Right: BlockQueue speedup of 0.82, 0.85, 1.01, 1.32 and 1.74 times as graphs grow."></a>
+              <figcaption>My benchmark: slower at first, faster at scale.</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <ul class="minor">
+          <li>
+            <h3><a href="https://github.com/AfifLotfi/OS-Grp-10">USB activity driver</a></h3>
+            <p>A Linux kernel module that logs file activity on USB drives and flags mass copying. I wrote the end-to-end tests and fixed the compile and timing bugs from review. 20 of 26 commits.</p>
           </li>
-          <li class="entry">
-            <p class="when label">2026</p>
-            <h3><a href="https://github.com/AfifLotfi/OS-Grp-10">USB file-transfer activity driver<span class="arrow" aria-hidden="true">↗</span></a></h3>
-            <p class="where">Main contributor, 20 of 26 commits</p>
-            <div class="body">
-              <p>A Linux kernel module that logs file activity on USB drives and flags suspicious mass-copying, as a small data-loss-prevention tool. I built the end-to-end test suite and fixed the kernel compile and timing bugs raised in code review.</p>
-              <p class="stack">C · Linux kernel · Raspberry Pi</p>
-            </div>
+          <li>
+            <h3><a href="https://github.com/BlackberryDealer/Sims-CLI-game">SimCLI</a></h3>
+            <p>A life-sim game in the terminal, in Java. I broke up a “god method”, untangled circular dependencies with dependency injection, and added tests and CI.</p>
           </li>
-          <li class="entry">
-            <p class="when label">2026</p>
-            <h3><a href="https://github.com/BlackberryDealer/Sims-CLI-game">SimCLI<span class="arrow" aria-hidden="true">↗</span></a></h3>
-            <p class="where">Top contributor, 55 commits</p>
-            <div class="body">
-              <p>A life-simulation game played in the terminal. I refactored the engine to remove a “god method” and circular dependencies using dependency injection, then added unit tests and CI.</p>
-              <p class="stack">Java 17 · Maven · GitHub Actions</p>
-            </div>
-          </li>
-          <li class="entry">
-            <p class="when label">2026</p>
-            <h3><a href="https://github.com/colossalcap/dsa-airline-project">Airline route finder<span class="arrow" aria-hidden="true">↗</span></a></h3>
-            <p class="where">Data structures &amp; algorithms coursework</p>
-            <div class="body">
-              <p>Finds flight routes between airports with Dijkstra, Yen’s K-shortest paths and BFS reachability, served as a small Flask web app.</p>
-              <p class="stack">Python · Flask</p>
-            </div>
-          </li>
-          <li class="entry">
-            <p class="when label">2025</p>
-            <h3><a href="https://github.com/colossalcap/Tic-Tac-Toe">Tic-tac-toe with alpha-beta search<span class="arrow" aria-hidden="true">↗</span></a></h3>
-            <p class="where">Started as a group project, since rewritten</p>
-            <div class="body">
-              <p>A terminal game in C with three difficulty levels. Hard mode uses minimax with alpha-beta pruning, and a built-in self-test plays out all 16,752 possible games to show it never loses.</p>
-              <p class="stack">C11 · Make</p>
-            </div>
-          </li>
-          <li class="entry">
-            <p class="when label">2022</p>
-            <h3><a href="https://github.com/colossalcap/real-estate-demo">Cloud-native real estate demo<span class="arrow" aria-hidden="true">↗</span></a></h3>
-            <p class="where">Oracle internship</p>
-            <div class="body">
-              <p>Property listings backed by Autonomous Database, images served from a headless CMS, and uploads scanned through an Integration Cloud flow.</p>
-              <p class="stack">Python · Flask · Oracle Cloud</p>
-            </div>
+          <li>
+            <h3><a href="https://github.com/colossalcap/real-estate-demo">Oracle real estate demo</a></h3>
+            <p>My internship project from 2022: Flask on Oracle Autonomous Database, with listing images from a headless CMS and an image-scanning flow on upload.</p>
           </li>
         </ul>
       </section>
 
-      <section class="section" id="skills" tabindex="-1" aria-labelledby="skills-title">
-        <header><h2 id="skills-title"><span class="num">03</span>Skills</h2></header>
-        <dl class="skills">
-          <div><dt>Languages</dt><dd>Python, Java, C, Rust, JavaScript, SQL</dd></div>
-          <div><dt>Frameworks &amp; tools</dt><dd>Flask, React, Docker, Git, GitHub Actions, Linux</dd></div>
-          <div><dt>Data &amp; cloud</dt><dd>PostgreSQL, MongoDB, MySQL, Oracle Cloud Infrastructure, Google Cloud</dd></div>
-          <div><dt>Machine learning</dt><dd>TensorFlow, Keras, genetic algorithms, reinforcement learning</dd></div>
-          <div><dt>Certification</dt><dd>OCI Foundations Associate</dd></div>
-          <div><dt>Languages spoken</dt><dd>English, Malay</dd></div>
-        </dl>
+      <section class="block" id="play" tabindex="-1" aria-labelledby="play-title">
+        <h2 id="play-title">Beat my tic-tac-toe AI</h2>
+        <p class="lede">My first-year C project had a bug: the computer worked out <em>your</em> best move and played it itself. I rewrote it with alpha-beta search, then ported it here. On Hard it can’t lose, so a draw is a win.</p>
+        <div class="game">
+          <div>
+            <div class="board" id="board" role="group" aria-label="Tic-tac-toe board"></div>
+            <div class="controls">
+              <fieldset style="border:0;padding:0;margin:0;display:flex;gap:1rem">
+                <legend class="visually-hidden">Difficulty</legend>
+                <label><input type="radio" name="level" value="easy"> Easy</label>
+                <label><input type="radio" name="level" value="hard" checked> Hard</label>
+              </fieldset>
+              <button class="btn" type="button" id="reset">New game</button>
+            </div>
+            <p class="status" id="status" aria-live="polite">You’re X. Your move.</p>
+            <p class="score" id="score">You 0 · Computer 0 · Draws 0</p>
+          </div>
+          <div>
+            <p>The original C version checks itself: it plays out every possible game against the Hard AI and confirms it never loses.</p>
+            <pre class="term"><code><span class="p">$</span> make test
+./tictactoe --selftest
+Exhaustive check: 16752 games played, 0 lost by the AI
+All self-tests passed.</code></pre>
+            <p class="small" style="margin-top:0.75rem"><a href="https://github.com/colossalcap/Tic-Tac-Toe">Source on GitHub</a></p>
+          </div>
+        </div>
       </section>
 
-      <section class="section" id="contact" tabindex="-1" aria-labelledby="contact-title">
-        <header><h2 id="contact-title"><span class="num">04</span>Contact</h2></header>
-        <div>
-          <p class="contact-line">Hiring for a part-time role or internship? I’d like to hear about it.</p>
-          <ul class="links">
-            <li><a href="mailto:hanzalahhisam02@gmail.com">hanzalahhisam02@gmail.com</a></li>
-            <li><a href="https://www.linkedin.com/in/hanzalah-hisam">LinkedIn</a></li>
-            <li><a href="https://github.com/colossalcap">GitHub</a></li>
-          </ul>
-        </div>
+      <section class="block" id="experience" tabindex="-1" aria-labelledby="xp-title">
+        <h2 id="xp-title">Where I’ve worked</h2>
+        <ul class="xp">
+          <li>
+            <p class="small">Dec 2025 – Jan 2026</p>
+            <div><h3>Sales Associate, H&amp;M</h3><p>Part-time over the holiday rush: helping with sizing and styling, handling the till, returns and exchanges, and keeping the fitting rooms in order.</p></div>
+          </li>
+          <li>
+            <p class="small">Aug 2023 – Aug 2025</p>
+            <div><h3>Assistant Field Instructor, Special Operations Command, SPF</h3><p>National Service. Helped deliver TAC 2 Immediate Response Team training to newly recruited regular officers, after being trained to TAC 3 myself.</p></div>
+          </li>
+          <li>
+            <p class="small">Sep 2022 – Feb 2023</p>
+            <div><h3>Solution Engineering Intern, Oracle Singapore</h3><p>Earned the OCI Foundations Associate cert, co-built the real estate demo above for a client pitch, and wrote a proposal on API management and SOA for a client in Pakistan.</p></div>
+          </li>
+        </ul>
+        <p style="margin-top:1.5rem;max-inline-size:42rem">Day to day I write Python and SQL, with Java and C for coursework. I’m comfortable in Linux and Docker, and I’ve shipped things on PostgreSQL, MongoDB and Oracle Cloud. I speak English and Malay.</p>
+      </section>
+
+      <section class="block" id="contact" tabindex="-1" aria-labelledby="contact-title">
+        <h2 id="contact-title" class="visually-hidden">Contact</h2>
+        <p class="contact-line">Got a part-time role or internship? Email’s the fastest way to reach me.</p>
+        <ul class="links">
+          <li><a href="mailto:hanzalahhisam02@gmail.com">hanzalahhisam02@gmail.com</a></li>
+          <li><a href="https://www.linkedin.com/in/hanzalah-hisam">LinkedIn</a></li>
+          <li><a href="https://github.com/colossalcap">GitHub</a></li>
+        </ul>
       </section>
     </main>
 
-    <footer class="site-footer">
+    <footer>
+      <p>Written by hand in plain HTML and CSS. No framework, no tracking, one small script for the game.</p>
       <p>© 2026 Hanzalah Hisam · Singapore</p>
     </footer>
   </div>
 
   <script type="module">
-    // Keep the scrollspy state available to assistive tech, and fall back to
-    // IntersectionObserver where scroll-target-group isn't supported.
+    // ---------- Scrollspy: mirror the visual state for assistive tech ----------
     const links = [...document.querySelectorAll('.site-header nav a')];
     const setCurrent = (active) => {
       for (const link of links) {
@@ -380,25 +371,116 @@
         else link.removeAttribute('aria-current');
       }
     };
-
     if (CSS.supports('scroll-target-group: auto')) {
       const sync = () => setCurrent(document.querySelector('.site-header nav a:target-current'));
       sync();
       document.addEventListener('scrollend', sync);
     } else if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver((entries) => {
+      const io = new IntersectionObserver((entries) => {
         for (const entry of entries) {
           if (!entry.isIntersecting) continue;
-          const active = links.find((link) => link.hash === `#${entry.target.id}`);
-          for (const link of links) link.classList.toggle('target-current', link === active);
+          const active = links.find((l) => l.hash === `#${entry.target.id}`);
+          for (const l of links) l.classList.toggle('target-current', l === active);
           setCurrent(active);
         }
       }, { rootMargin: '-50% 0px -50% 0px' });
-      for (const link of links) {
-        const target = document.querySelector(link.hash);
-        if (target) observer.observe(target);
-      }
+      for (const l of links) { const t = document.querySelector(l.hash); if (t) io.observe(t); }
     }
+
+    // ---------- Tic-tac-toe: same alpha-beta search as the C version ----------
+    const LINES = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+    const boardEl = document.getElementById('board');
+    const statusEl = document.getElementById('status');
+    const scoreEl = document.getElementById('score');
+    const score = { you: 0, ai: 0, draw: 0 };
+    let cells, over;
+
+    const winLine = (b) => LINES.find(([a, c, d]) => b[a] && b[a] === b[c] && b[a] === b[d]);
+    const full = (b) => b.every(Boolean);
+
+    function minimax(b, depth, aiTurn, alpha, beta) {
+      const w = winLine(b);
+      if (w) return b[w[0]] === 'O' ? 10 - depth : depth - 10;
+      if (full(b)) return 0;
+      let best = aiTurn ? -Infinity : Infinity;
+      for (let i = 0; i < 9; i++) {
+        if (b[i]) continue;
+        b[i] = aiTurn ? 'O' : 'X';
+        const s = minimax(b, depth + 1, !aiTurn, alpha, beta);
+        b[i] = null;
+        if (aiTurn) { best = Math.max(best, s); alpha = Math.max(alpha, best); }
+        else { best = Math.min(best, s); beta = Math.min(beta, best); }
+        if (alpha >= beta) break;
+      }
+      return best;
+    }
+
+    function aiMove(b) {
+      const empty = b.flatMap((v, i) => (v ? [] : [i]));
+      if (document.querySelector('input[name=level]:checked').value === 'easy') {
+        return empty[Math.floor(Math.random() * empty.length)];
+      }
+      let best = -Infinity, picks = [];
+      for (const i of empty) {
+        b[i] = 'O';
+        const s = minimax(b, 1, false, -Infinity, Infinity);
+        b[i] = null;
+        if (s > best) { best = s; picks = [i]; } else if (s === best) picks.push(i);
+      }
+      return picks[Math.floor(Math.random() * picks.length)];
+    }
+
+    const labelFor = (i, v) => `Row ${Math.floor(i / 3) + 1}, column ${(i % 3) + 1}, ${v ? v : 'empty'}`;
+
+    function render(b, line = []) {
+      [...boardEl.children].forEach((btn, i) => {
+        btn.textContent = b[i] ?? '';
+        btn.dataset.mark = b[i] ?? '';
+        btn.setAttribute('aria-label', labelFor(i, b[i]));
+        btn.disabled = over || Boolean(b[i]);
+        btn.classList.toggle('win', line.includes(i));
+      });
+      scoreEl.textContent = `You ${score.you} · Computer ${score.ai} · Draws ${score.draw}`;
+    }
+
+    function finish(b) {
+      const line = winLine(b);
+      if (line) {
+        over = true;
+        if (b[line[0]] === 'X') { score.you++; statusEl.textContent = 'You won. Nice — try Hard if you haven’t.'; }
+        else { score.ai++; statusEl.textContent = 'Computer wins. New game?'; }
+        render(b, line);
+        return true;
+      }
+      if (full(b)) { over = true; score.draw++; statusEl.textContent = 'Draw. On Hard, that’s the best anyone can do.'; render(b); return true; }
+      return false;
+    }
+
+    function play(i) {
+      if (over || cells[i]) return;
+      cells[i] = 'X';
+      if (finish(cells)) return;
+      const j = aiMove(cells);
+      cells[j] = 'O';
+      statusEl.textContent = `Computer played row ${Math.floor(j / 3) + 1}, column ${(j % 3) + 1}. Your move.`;
+      if (!finish(cells)) render(cells);
+    }
+
+    function reset() {
+      cells = Array(9).fill(null);
+      over = false;
+      statusEl.textContent = 'You’re X. Your move.';
+      render(cells);
+    }
+
+    for (let i = 0; i < 9; i++) {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.addEventListener('click', () => play(i));
+      boardEl.append(btn);
+    }
+    document.getElementById('reset').addEventListener('click', reset);
+    reset();
   </script>
 </body>
 </html>
